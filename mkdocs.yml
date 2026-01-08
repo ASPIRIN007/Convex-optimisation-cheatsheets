@@ -1,0 +1,53 @@
+site_name: Book Manual — Solutions
+site_url: https://ASPIRIN007.github.io/Convex-optimisation-cheatsheets/
+
+repo_url: https://github.com/ASPIRIN007/Convex-optimisation-cheatsheets.git
+repo_name: ASPIRIN007/ASPIRIN007.github.io
+
+use_directory_urls: true
+
+
+theme:
+  name: material
+  logo: assets/cover.png
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.instant
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+plugins:
+  - search
+
+
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js
+
+
+nav:
+  - Overview: index.md
+  - Cheatsheet_norm: Norm_and_properties
+
