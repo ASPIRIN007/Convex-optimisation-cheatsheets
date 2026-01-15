@@ -1,0 +1,1169 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ASPIRIN007.github.io/Convex-optimisation-cheatsheets/duality_concept/">
+      
+      
+        <link rel="prev" href="../cheatsheet_norm/">
+      
+      
+        <link rel="next" href="../chapter4_boyd/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Duality_concept - Book Manual — Solutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lagrangian-duality-kkt-geometric-intuition-cheat-sheet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Book Manual — Solutions" class="md-header__button md-logo" aria-label="Book Manual — Solutions" data-md-component="logo">
+      
+  <img src="../assets/images/boyd-cover.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Book Manual — Solutions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Duality_concept
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ASPIRIN007/Convex-optimisation-cheatsheets.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ASPIRIN007/ASPIRIN007.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Book Manual — Solutions" class="md-nav__button md-logo" aria-label="Book Manual — Solutions" data-md-component="logo">
+      
+  <img src="../assets/images/boyd-cover.png" alt="logo">
+
+    </a>
+    Book Manual — Solutions
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ASPIRIN007/Convex-optimisation-cheatsheets.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ASPIRIN007/ASPIRIN007.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet_norm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheatsheet_norm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Duality_concept
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Duality_concept
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-why-lagrange-multipliers-exist-intuition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Why Lagrange multipliers exist (intuition)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-indicator-function-reformulation-extended-value-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Indicator-function reformulation (extended-value view)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-why-replace-indicators-by-linear-underestimators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) Why replace indicators by linear underestimators?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-dual-function-best-bound-from-lagrangian-relaxation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) Dual function = best bound from Lagrangian relaxation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-concavity-of-the-dual-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5) Concavity of the dual function
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-dual-is-convex-even-if-primal-is-nonconvex-what-is-true" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) “Dual is convex even if primal is nonconvex” — what is true?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-kkt-conditions-convex-case-regularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7) KKT conditions (convex case + regularity)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-when-computing-glambdanu-is-np-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8) When computing \(g(\lambda,\nu)\) is NP-hard
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-when-duality-is-most-useful-practical-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9) When duality is most useful (practical rule)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-numerical-examples-primal-dual-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10) Numerical examples (primal + dual variables)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10) Numerical examples (primal + dual variables)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-a-1d-quadratic-with-box-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example A: 1D quadratic with box constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-b-2d-convex-quadratic-with-multiple-active-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example B: 2D convex quadratic with multiple active constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-quick-mental-translation-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11) Quick mental “translation rules”
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter4_boyd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    chapter4_boyd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convexity_preserving_operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    convexity_preserving_operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Strong_convexity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strong_convexity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Convex_sets_and_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Convex_sets_and_functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-why-lagrange-multipliers-exist-intuition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Why Lagrange multipliers exist (intuition)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-indicator-function-reformulation-extended-value-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Indicator-function reformulation (extended-value view)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-why-replace-indicators-by-linear-underestimators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) Why replace indicators by linear underestimators?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-dual-function-best-bound-from-lagrangian-relaxation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) Dual function = best bound from Lagrangian relaxation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-concavity-of-the-dual-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5) Concavity of the dual function
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-dual-is-convex-even-if-primal-is-nonconvex-what-is-true" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) “Dual is convex even if primal is nonconvex” — what is true?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-kkt-conditions-convex-case-regularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7) KKT conditions (convex case + regularity)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-when-computing-glambdanu-is-np-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8) When computing \(g(\lambda,\nu)\) is NP-hard
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-when-duality-is-most-useful-practical-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9) When duality is most useful (practical rule)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-numerical-examples-primal-dual-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10) Numerical examples (primal + dual variables)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10) Numerical examples (primal + dual variables)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-a-1d-quadratic-with-box-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example A: 1D quadratic with box constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-b-2d-convex-quadratic-with-multiple-active-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example B: 2D convex quadratic with multiple active constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-quick-mental-translation-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11) Quick mental “translation rules”
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="lagrangian-duality-kkt-geometric-intuition-cheat-sheet">Lagrangian Duality + KKT + Geometric Intuition — Cheat Sheet<a class="headerlink" href="#lagrangian-duality-kkt-geometric-intuition-cheat-sheet" title="Permanent link">&para;</a></h1>
+<p>Let the primal problem be</p>
+<div class="arithmatex">\[
+\min_x \ f_0(x)
+\quad \text{s.t.}\quad
+f_i(x)\le 0,\ i=1,\dots,m,\qquad
+h_j(x)=0,\ j=1,\dots,p.
+\]</div>
+<hr />
+<h2 id="1-why-lagrange-multipliers-exist-intuition">1) Why Lagrange multipliers exist (intuition)<a class="headerlink" href="#1-why-lagrange-multipliers-exist-intuition" title="Permanent link">&para;</a></h2>
+<p><strong>“Prices for constraint violation.”</strong> Introduce multipliers <span class="arithmatex">\(\lambda_i\ge 0\)</span> for inequalities and <span class="arithmatex">\(\nu_j\in\mathbb{R}\)</span> for equalities, and combine constraints into the objective:</p>
+<div class="arithmatex">\[
+L(x,\lambda,\nu)=f_0(x)+\sum_{i=1}^m \lambda_i f_i(x)+\sum_{j=1}^p \nu_j h_j(x).
+\]</div>
+<ul>
+<li>If <span class="arithmatex">\(x\)</span> is feasible, then <span class="arithmatex">\(f_i(x)\le 0\)</span> and with <span class="arithmatex">\(\lambda_i\ge 0\)</span> we get <span class="arithmatex">\(\lambda_i f_i(x)\le 0\)</span>, so</li>
+</ul>
+<p>$$
+  L(x,\lambda,\nu)\le f_0(x).
+  $$</p>
+<ul>
+<li>If <span class="arithmatex">\(x\)</span> violates a constraint (<span class="arithmatex">\(f_i(x)&gt;0\)</span>), the term <span class="arithmatex">\(\lambda_i f_i(x)\)</span> grows with <span class="arithmatex">\(\lambda_i\)</span> → violation becomes expensive.</li>
+</ul>
+<p><strong>Geometric picture.</strong> At optimum, active constraints “push back” against the objective’s descent direction; multipliers are the weights of these pushes.</p>
+<hr />
+<h2 id="2-indicator-function-reformulation-extended-value-view">2) Indicator-function reformulation (extended-value view)<a class="headerlink" href="#2-indicator-function-reformulation-extended-value-view" title="Permanent link">&para;</a></h2>
+<p>Define indicators:</p>
+<div class="arithmatex">\[
+I_-(u)=
+\begin{cases}
+0, &amp; u\le 0,\\
++\infty, &amp; u&gt;0,
+\end{cases}
+\qquad
+I_0(u)=
+\begin{cases}
+0, &amp; u=0,\\
++\infty, &amp; u\ne 0.
+\end{cases}
+\]</div>
+<p>Then the constrained problem is equivalent to:</p>
+<div class="arithmatex">\[
+\min_x\ \Big(
+f_0(x)+\sum_{i=1}^m I_-(f_i(x))+\sum_{j=1}^p I_0(h_j(x))
+\Big).
+\]</div>
+<p><strong>Convexity note.</strong>
+- If <span class="arithmatex">\(f_0,f_i\)</span> are convex and <span class="arithmatex">\(h_j\)</span> affine (standard convex form), this extended-value objective is convex.
+- If the original feasibility set is nonconvex (e.g., nonlinear equalities or nonconvex <span class="arithmatex">\(f_i\)</span>), this form is generally nonconvex too (it encodes the same set).</p>
+<hr />
+<h2 id="3-why-replace-indicators-by-linear-underestimators">3) Why replace indicators by linear underestimators?<a class="headerlink" href="#3-why-replace-indicators-by-linear-underestimators" title="Permanent link">&para;</a></h2>
+<p>For any <span class="arithmatex">\(\lambda\ge 0\)</span> and any <span class="arithmatex">\(u\in\mathbb{R}\)</span>,</p>
+<div class="arithmatex">\[
+\lambda u \le I_-(u).
+\]</div>
+<p>For any <span class="arithmatex">\(\nu\in\mathbb{R}\)</span> and any <span class="arithmatex">\(u\in\mathbb{R}\)</span>,</p>
+<div class="arithmatex">\[
+\nu u \le I_0(u).
+\]</div>
+<p>So replacing indicator terms with <span class="arithmatex">\(\lambda_i f_i(x)\)</span> and <span class="arithmatex">\(\nu_j h_j(x)\)</span> produces a global lower bound on the extended-value objective.</p>
+<p><strong>Key identity (supporting-hyperplane envelope).</strong></p>
+<div class="arithmatex">\[
+I_-(u)=\sup_{\lambda\ge 0}\lambda u,
+\qquad
+I_0(u)=\sup_{\nu\in\mathbb{R}}\nu u.
+\]</div>
+<p>This is the deeper reason the “linear estimator” is canonical: the indicator is literally the pointwise supremum of these linear functionals.</p>
+<hr />
+<h2 id="4-dual-function-best-bound-from-lagrangian-relaxation">4) Dual function = best bound from Lagrangian relaxation<a class="headerlink" href="#4-dual-function-best-bound-from-lagrangian-relaxation" title="Permanent link">&para;</a></h2>
+<p><strong>Dual function</strong></p>
+<div class="arithmatex">\[
+g(\lambda,\nu)=\inf_x L(x,\lambda,\nu).
+\]</div>
+<p><strong>Lower bound property (weak duality).</strong> For any feasible <span class="arithmatex">\(x\)</span> and any <span class="arithmatex">\(\lambda\ge 0\)</span>,</p>
+<div class="arithmatex">\[
+g(\lambda,\nu)\le L(x,\lambda,\nu)\le f_0(x)
+\quad \Rightarrow \quad
+g(\lambda,\nu)\le p^\star.
+\]</div>
+<p><strong>Dual problem</strong></p>
+<div class="arithmatex">\[
+\max_{\lambda\ge 0,\ \nu\in\mathbb{R}^p}\ g(\lambda,\nu).
+\]</div>
+<p>Interpretation: choose multipliers to make the lower bound as large (tight) as possible.</p>
+<hr />
+<h2 id="5-concavity-of-the-dual-function">5) Concavity of the dual function<a class="headerlink" href="#5-concavity-of-the-dual-function" title="Permanent link">&para;</a></h2>
+<p>For each fixed <span class="arithmatex">\(x\)</span>, the function <span class="arithmatex">\((\lambda,\nu)\mapsto L(x,\lambda,\nu)\)</span> is affine.
+Therefore <span class="arithmatex">\(g(\lambda,\nu)\)</span> is the pointwise infimum of affine functions, hence concave:</p>
+<div class="arithmatex">\[
+g(\theta z_1+(1-\theta)z_2)\ge
+\theta g(z_1)+(1-\theta)g(z_2),
+\qquad
+\theta\in[0,1].
+\]</div>
+<p><strong>Important distinction.</strong>
+- Pointwise supremum of convex functions is convex.
+- Pointwise infimum of affine functions is concave.
+- Pointwise infimum of general convex functions is not guaranteed convex/concave.</p>
+<hr />
+<h2 id="6-dual-is-convex-even-if-primal-is-nonconvex-what-is-true">6) “Dual is convex even if primal is nonconvex” — what is true?<a class="headerlink" href="#6-dual-is-convex-even-if-primal-is-nonconvex-what-is-true" title="Permanent link">&para;</a></h2>
+<p>The dual feasible set is typically just</p>
+<div class="arithmatex">\[
+\lambda\ge 0,\qquad \nu\ \text{free}.
+\]</div>
+<p>That set is convex regardless of primal convexity, and <span class="arithmatex">\(g\)</span> is concave regardless of primal convexity, so the dual is a convex optimization problem <strong>in the dual variables</strong>.</p>
+<p><strong>Two caveats.</strong>
+- Even though the dual is convex, evaluating <span class="arithmatex">\(g(\lambda,\nu)=\inf_x L(x,\lambda,\nu)\)</span> can be computationally hard.
+- Nonconvex primals can have a duality gap: <span class="arithmatex">\(d^\star &lt; p^\star\)</span>.</p>
+<hr />
+<h2 id="7-kkt-conditions-convex-case-regularity">7) KKT conditions (convex case + regularity)<a class="headerlink" href="#7-kkt-conditions-convex-case-regularity" title="Permanent link">&para;</a></h2>
+<p>Assume convexity (convex <span class="arithmatex">\(f_0,f_i\)</span>, affine <span class="arithmatex">\(h_j\)</span>) and a constraint qualification (e.g., Slater).
+Then <span class="arithmatex">\(x^\star,\lambda^\star,\nu^\star\)</span> are optimal iff:</p>
+<p><strong>Primal feasibility</strong></p>
+<div class="arithmatex">\[
+f_i(x^\star)\le 0,\qquad h_j(x^\star)=0.
+\]</div>
+<p><strong>Dual feasibility</strong></p>
+<div class="arithmatex">\[
+\lambda^\star\ge 0.
+\]</div>
+<p><strong>Stationarity</strong></p>
+<div class="arithmatex">\[
+\nabla f_0(x^\star)+\sum_{i=1}^m \lambda_i^\star \nabla f_i(x^\star)+\sum_{j=1}^p \nu_j^\star \nabla h_j(x^\star)=0.
+\]</div>
+<p><strong>Complementary slackness</strong></p>
+<div class="arithmatex">\[
+\lambda_i^\star f_i(x^\star)=0\quad \forall i.
+\]</div>
+<p>Geometric meaning: the objective gradient is balanced by a nonnegative combination of active constraint normals; inactive constraints get zero multiplier.</p>
+<hr />
+<h2 id="8-when-computing-glambdanu-is-np-hard">8) When computing <span class="arithmatex">\(g(\lambda,\nu)\)</span> is NP-hard<a class="headerlink" href="#8-when-computing-glambdanu-is-np-hard" title="Permanent link">&para;</a></h2>
+<p>Computing <span class="arithmatex">\(g\)</span> requires solving:</p>
+<div class="arithmatex">\[
+g(\lambda,\nu)=\inf_x \Big(f_0(x)+\sum_i \lambda_i f_i(x)+\sum_j \nu_j h_j(x)\Big).
+\]</div>
+<p>This becomes NP-hard when the inner minimization is a hard global optimization problem, e.g.:</p>
+<ul>
+<li>Discrete/integer variables (MILP/MIQP structure).</li>
+<li>Nonconvex continuous minimization (indefinite QP over a polytope/box, general polynomial optimization).</li>
+<li>Nonlinear equalities producing nonconvex feasible geometry.</li>
+<li>Nonconvex <span class="arithmatex">\(f_0\)</span> (already makes <span class="arithmatex">\(g(0,0)=\inf_x f_0(x)\)</span> hard in general).</li>
+</ul>
+<hr />
+<h2 id="9-when-duality-is-most-useful-practical-rule">9) When duality is most useful (practical rule)<a class="headerlink" href="#9-when-duality-is-most-useful-practical-rule" title="Permanent link">&para;</a></h2>
+<p>Duality is especially effective when:
+- <span class="arithmatex">\(g(\lambda,\nu)\)</span> is efficiently computable (inner problem is convex or decomposes nicely), and
+- the duality gap is small (often zero in convex problems under Slater; sometimes small/zero due to special structure in nonconvex problems).</p>
+<p>Even with a nonconvex primal, a tractable dual can still provide strong lower bounds useful for:
+- certificates and benchmarking,
+- branch-and-bound pruning,
+- relaxation-based algorithms.</p>
+<hr />
+<h2 id="10-numerical-examples-primal-dual-variables">10) Numerical examples (primal + dual variables)<a class="headerlink" href="#10-numerical-examples-primal-dual-variables" title="Permanent link">&para;</a></h2>
+<h3 id="example-a-1d-quadratic-with-box-constraints">Example A: 1D quadratic with box constraints<a class="headerlink" href="#example-a-1d-quadratic-with-box-constraints" title="Permanent link">&para;</a></h3>
+<p>Primal:</p>
+<div class="arithmatex">\[
+\min_x\ 3x^2-2x-1
+\quad \text{s.t.}\quad
+0\le x\le 4.
+\]</div>
+<p>Unconstrained minimizer:</p>
+<div class="arithmatex">\[
+\frac{d}{dx}(3x^2-2x-1)=6x-2=0
+\Rightarrow x^\star=\frac{1}{3}.
+\]</div>
+<p>Since <span class="arithmatex">\(x^\star\in(0,4)\)</span>, both constraints are inactive, so multipliers are zero:</p>
+<div class="arithmatex">\[
+\lambda_{x\le 4}^\star=0,\qquad \lambda_{x\ge 0}^\star=0.
+\]</div>
+<p>Optimal value:</p>
+<div class="arithmatex">\[
+f(x^\star)=3\cdot\frac{1}{9}-2\cdot\frac{1}{3}-1=-\frac{4}{3}.
+\]</div>
+<hr />
+<h3 id="example-b-2d-convex-quadratic-with-multiple-active-constraints">Example B: 2D convex quadratic with multiple active constraints<a class="headerlink" href="#example-b-2d-convex-quadratic-with-multiple-active-constraints" title="Permanent link">&para;</a></h3>
+<p>Primal:</p>
+<div class="arithmatex">\[
+\min_{x,y}\ (x-5)^2+(y-3)^2
+\]</div>
+<p>s.t.</p>
+<div class="arithmatex">\[
+x+y\le 3,\qquad x\le 1.5,\qquad x\ge 0,\ y\ge 0.
+\]</div>
+<p>Candidate optimum on active constraints <span class="arithmatex">\(x=1.5\)</span> and <span class="arithmatex">\(x+y=3\)</span>:</p>
+<div class="arithmatex">\[
+x^\star=1.5,\qquad y^\star=1.5.
+\]</div>
+<p>KKT multipliers:
+- active: <span class="arithmatex">\(x+y\le 3\)</span> with <span class="arithmatex">\(\lambda_1^\star&gt;0\)</span>, <span class="arithmatex">\(x\le 1.5\)</span> with <span class="arithmatex">\(\lambda_2^\star&gt;0\)</span>
+- inactive: <span class="arithmatex">\(x\ge 0\)</span> and <span class="arithmatex">\(y\ge 0\)</span> so their multipliers are zero</p>
+<p>Stationarity at <span class="arithmatex">\((1.5,1.5)\)</span>:</p>
+<div class="arithmatex">\[
+\nabla f(x,y)=
+\begin{bmatrix}
+2(x-5)\\
+2(y-3)
+\end{bmatrix}
+\Rightarrow
+\nabla f(1.5,1.5)=
+\begin{bmatrix}
+-7\\
+-3
+\end{bmatrix}.
+\]</div>
+<p>Constraint normals:
+- for <span class="arithmatex">\(x+y\le 3\)</span>: <span class="arithmatex">\((1,1)\)</span>
+- for <span class="arithmatex">\(x\le 1.5\)</span>: <span class="arithmatex">\((1,0)\)</span></p>
+<p>So</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+-7\\
+-3
+\end{bmatrix}
++\lambda_1
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix}
++\lambda_2
+\begin{bmatrix}
+1\\
+0
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\
+0
+\end{bmatrix}.
+\]</div>
+<p>From the <span class="arithmatex">\(y\)</span>-component: <span class="arithmatex">\(-3+\lambda_1=0\Rightarrow \lambda_1^\star=3\)</span>.</p>
+<p>From the <span class="arithmatex">\(x\)</span>-component: <span class="arithmatex">\(-7+\lambda_1+\lambda_2=0\Rightarrow \lambda_2^\star=4\)</span>.</p>
+<p>Thus</p>
+<div class="arithmatex">\[
+(x^\star,y^\star)=(1.5,1.5),
+\qquad
+\lambda_1^\star=3,\quad \lambda_2^\star=4,
+\]</div>
+<p>and nonnegativity multipliers are <span class="arithmatex">\(0\)</span>.</p>
+<p>Objective value:</p>
+<div class="arithmatex">\[
+f(x^\star,y^\star)=(-3.5)^2+(-1.5)^2=12.25+2.25=14.5.
+\]</div>
+<hr />
+<h2 id="11-quick-mental-translation-rules">11) Quick mental “translation rules”<a class="headerlink" href="#11-quick-mental-translation-rules" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Lagrangian = objective + priced constraints:</li>
+</ul>
+<p>$$
+  L=f_0+\lambda^\top f+\nu^\top h.
+  $$</p>
+<ul>
+<li>Dual function is a bound:</li>
+</ul>
+<p>$$
+  g(\lambda,\nu)=\inf_x L(x,\lambda,\nu)\le p^\star.
+  $$</p>
+<ul>
+<li>Concavity comes from “inf of affine”:</li>
+</ul>
+<p>$$
+  g \ \text{concave in }(\lambda,\nu).
+  $$</p>
+<ul>
+<li>Dual feasible set is convex even if primal is not:</li>
+</ul>
+<p>$$
+  \lambda\ge 0,\ \nu\ \text{free}.
+  $$</p>
+<ul>
+<li>Duality is most computationally useful when the inner infimum is tractable and the gap is small.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+      
+    
+  </body>
+</html>
