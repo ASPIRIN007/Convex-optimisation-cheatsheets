@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#lagrangian-duality-kkt-sensitivity-my-notes-boyd-ch5-vibe" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -340,6 +345,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    chapter4_boyd
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -357,6 +382,347 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-quick-picture-in-my-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0) Quick picture in my head
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-lagrangian-turning-constraints-into-penalties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Lagrangian: turning constraints into penalties
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1) Lagrangian: turning constraints into penalties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-lambda_ige-0-for-inequalities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why $\(\lambda_i\ge 0\)$ for inequalities?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dual-function-best-lower-bound-from-a-fixed-pricing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Dual function = best lower bound from a fixed pricing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2) Dual function = best lower bound from a fixed pricing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lower-bound-weak-duality-in-one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lower-bound (weak duality) in one line
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dual-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) Dual problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-why-is-the-dual-always-convex-even-if-primal-is-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) Why is the dual always “convex” (even if primal is not)?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-indicator-function-viewpoint-why-lagrangian-is-natural" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5) Indicator-function viewpoint (why Lagrangian is natural)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-strong-duality-when-do-we-get-pstardstar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) Strong duality: when do we get $\(p^\star=d^\star\)$?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6) Strong duality: when do we get $\(p^\star=d^\star\)$?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-convex-optimization-standard-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In convex optimization (standard case)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-kkt-conditions-the-checklist-i-always-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7) KKT conditions (the checklist I always use)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7) KKT conditions (the checklist I always use)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-primal-feasibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (i) Primal feasibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii-dual-feasibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (ii) Dual feasibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iii-complementary-slackness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (iii) Complementary slackness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iv-stationarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (iv) Stationarity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geometric-meaning-of-stationarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometric meaning of stationarity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-saddle-point-view-useful-for-intuition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8) Saddle point view (useful for intuition)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-sensitivity-perturbation-this-is-the-part-in-your-slide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9) Sensitivity / perturbation (this is the part in your slide)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9) Sensitivity / perturbation (this is the part in your slide)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-sensitivity-inequality-works-without-differentiability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global sensitivity inequality (works without differentiability)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-sensitivity-when-differentiable-at-the-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local sensitivity (when differentiable at the origin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-weak-duality-always-holds-convex-or-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10) “Weak duality always holds” (convex or not)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-conjugate-function-lens-fast-way-to-see-duals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11) Conjugate-function lens (fast way to see duals)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-two-quick-examples-i-like-to-sanity-check-with-kkt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12) Two quick examples I like to sanity-check with KKT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12) Two quick examples I like to sanity-check with KKT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-simple-inequality-constraint-1d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Simple inequality constraint (1D)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-equality-constrained-least-squares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Equality constrained least squares
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-mini-translation-table-stuff-i-use-while-solving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13) Mini translation table (stuff I use while solving)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -460,6 +826,338 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-quick-picture-in-my-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0) Quick picture in my head
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-lagrangian-turning-constraints-into-penalties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Lagrangian: turning constraints into penalties
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1) Lagrangian: turning constraints into penalties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-lambda_ige-0-for-inequalities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why $\(\lambda_i\ge 0\)$ for inequalities?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dual-function-best-lower-bound-from-a-fixed-pricing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Dual function = best lower bound from a fixed pricing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2) Dual function = best lower bound from a fixed pricing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lower-bound-weak-duality-in-one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lower-bound (weak duality) in one line
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dual-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) Dual problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-why-is-the-dual-always-convex-even-if-primal-is-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) Why is the dual always “convex” (even if primal is not)?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-indicator-function-viewpoint-why-lagrangian-is-natural" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5) Indicator-function viewpoint (why Lagrangian is natural)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-strong-duality-when-do-we-get-pstardstar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) Strong duality: when do we get $\(p^\star=d^\star\)$?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6) Strong duality: when do we get $\(p^\star=d^\star\)$?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-convex-optimization-standard-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In convex optimization (standard case)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-kkt-conditions-the-checklist-i-always-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7) KKT conditions (the checklist I always use)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7) KKT conditions (the checklist I always use)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-primal-feasibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (i) Primal feasibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii-dual-feasibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (ii) Dual feasibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iii-complementary-slackness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (iii) Complementary slackness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iv-stationarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (iv) Stationarity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geometric-meaning-of-stationarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometric meaning of stationarity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-saddle-point-view-useful-for-intuition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8) Saddle point view (useful for intuition)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-sensitivity-perturbation-this-is-the-part-in-your-slide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9) Sensitivity / perturbation (this is the part in your slide)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9) Sensitivity / perturbation (this is the part in your slide)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-sensitivity-inequality-works-without-differentiability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global sensitivity inequality (works without differentiability)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-sensitivity-when-differentiable-at-the-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local sensitivity (when differentiable at the origin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-weak-duality-always-holds-convex-or-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10) “Weak duality always holds” (convex or not)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-conjugate-function-lens-fast-way-to-see-duals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11) Conjugate-function lens (fast way to see duals)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-two-quick-examples-i-like-to-sanity-check-with-kkt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12) Two quick examples I like to sanity-check with KKT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12) Two quick examples I like to sanity-check with KKT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-simple-inequality-constraint-1d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Simple inequality constraint (1D)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-equality-constrained-least-squares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Equality constrained least squares
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-mini-translation-table-stuff-i-use-while-solving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13) Mini translation table (stuff I use while solving)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -479,9 +1177,285 @@
   
 
 
-  <h1>chapter4_boyd</h1>
-
-
+<h1 id="lagrangian-duality-kkt-sensitivity-my-notes-boyd-ch5-vibe">Lagrangian Duality + KKT + Sensitivity — My Notes (Boyd Ch.5 vibe)<a class="headerlink" href="#lagrangian-duality-kkt-sensitivity-my-notes-boyd-ch5-vibe" title="Permanent link">&para;</a></h1>
+<p>We start with the primal problem</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\min_x\quad &amp; f_0(x)\\
+\text{s.t.}\quad &amp; f_i(x)\le 0,\quad i=1,\dots,m,\\
+&amp; h_j(x)=0,\quad j=1,\dots,p.
+\end{aligned}
+\]</div>
+<p>Throughout: $<span class="arithmatex">\(\lambda\in\mathbb{R}^m,\ \lambda\ge 0,\qquad \nu\in\mathbb{R}^p\ \text{free}.\)</span>$</p>
+<hr />
+<h2 id="0-quick-picture-in-my-head">0) Quick picture in my head<a class="headerlink" href="#0-quick-picture-in-my-head" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Primal: optimize over $<span class="arithmatex">\(x\)</span>$ directly with constraints.</li>
+<li>Dual: optimize over "prices" $<span class="arithmatex">\(\lambda,\nu\)</span>$ that penalize constraint violation.</li>
+<li>Dual is always a convex optimization problem in $<span class="arithmatex">\(\lambda,\nu\)</span>$ (maximize a concave function over a convex set).</li>
+<li>Gap: $<span class="arithmatex">\(d^\star \le p^\star\)</span>$ always (weak duality), equality needs conditions (strong duality).</li>
+</ul>
+<hr />
+<h2 id="1-lagrangian-turning-constraints-into-penalties">1) Lagrangian: turning constraints into penalties<a class="headerlink" href="#1-lagrangian-turning-constraints-into-penalties" title="Permanent link">&para;</a></h2>
+<p>Define the Lagrangian</p>
+<div class="arithmatex">\[
+L(x,\lambda,\nu)= f_0(x)+\sum_{i=1}^m \lambda_i f_i(x)+\sum_{j=1}^p \nu_j h_j(x).
+\]</div>
+<h3 id="why-lambda_ige-0-for-inequalities">Why $<span class="arithmatex">\(\lambda_i\ge 0\)</span>$ for inequalities?<a class="headerlink" href="#why-lambda_ige-0-for-inequalities" title="Permanent link">&para;</a></h3>
+<p>If $<span class="arithmatex">\(x\)</span>$ is feasible, $<span class="arithmatex">\(f_i(x)\le 0\)</span>$, so with $<span class="arithmatex">\(\lambda_i\ge 0\)</span>$ we get $<span class="arithmatex">\(\lambda_i f_i(x)\le 0\)</span>$ and hence</p>
+<div class="arithmatex">\[
+L(x,\lambda,\nu)\le f_0(x)\qquad \text{for all feasible } x.
+\]</div>
+<p>So for any fixed $<span class="arithmatex">\(\lambda\ge 0,\nu\)</span>$, minimizing $<span class="arithmatex">\(L\)</span>$ over $<span class="arithmatex">\(x\)</span>$ gives something that can’t exceed the true optimum.</p>
+<hr />
+<h2 id="2-dual-function-best-lower-bound-from-a-fixed-pricing">2) Dual function = best lower bound from a fixed pricing<a class="headerlink" href="#2-dual-function-best-lower-bound-from-a-fixed-pricing" title="Permanent link">&para;</a></h2>
+<p>Dual function</p>
+<div class="arithmatex">\[
+g(\lambda,\nu)=\inf_x L(x,\lambda,\nu).
+\]</div>
+<h3 id="lower-bound-weak-duality-in-one-line">Lower-bound (weak duality) in one line<a class="headerlink" href="#lower-bound-weak-duality-in-one-line" title="Permanent link">&para;</a></h3>
+<p>For any feasible $<span class="arithmatex">\(x\)</span>$ and any $<span class="arithmatex">\(\lambda\ge 0\)</span>$:</p>
+<div class="arithmatex">\[
+g(\lambda,\nu)\le L(x,\lambda,\nu)\le f_0(x).
+\]</div>
+<p>Taking inf over feasible $<span class="arithmatex">\(x\)</span>$ gives</p>
+<div class="arithmatex">\[
+g(\lambda,\nu)\le p^\star.
+\]</div>
+<p>So every dual-feasible point gives a certificate lower bound.</p>
+<hr />
+<h2 id="3-dual-problem">3) Dual problem<a class="headerlink" href="#3-dual-problem" title="Permanent link">&para;</a></h2>
+<div class="arithmatex">\[
+\begin{aligned}
+\max_{\lambda,\nu}\quad &amp; g(\lambda,\nu)\\
+\text{s.t.}\quad &amp; \lambda\ge 0.
+\end{aligned}
+\]</div>
+<p>Let dual optimal value be $<span class="arithmatex">\(d^\star\)</span>$. Always:</p>
+<div class="arithmatex">\[
+d^\star \le p^\star.
+\]</div>
+<hr />
+<h2 id="4-why-is-the-dual-always-convex-even-if-primal-is-not">4) Why is the dual always “convex” (even if primal is not)?<a class="headerlink" href="#4-why-is-the-dual-always-convex-even-if-primal-is-not" title="Permanent link">&para;</a></h2>
+<p>For fixed $<span class="arithmatex">\(x\)</span>$, $<span class="arithmatex">\(L(x,\lambda,\nu)\)</span>$ is affine in $<span class="arithmatex">\((\lambda,\nu)\)</span>$.
+Then $<span class="arithmatex">\(g(\lambda,\nu)=\inf_x L(x,\lambda,\nu)\)</span>$ is the pointwise infimum of affine functions,
+hence <strong>concave</strong>.</p>
+<p>Therefore maximizing $<span class="arithmatex">\(g\)</span>$ over a convex set ($<span class="arithmatex">\(\lambda\ge 0\)</span>$) is a convex optimization problem (in the dual variables).</p>
+<p>Big caution: even if the dual is convex, evaluating $<span class="arithmatex">\(g(\lambda,\nu)=\inf_x L\)</span>$ can be hard if the inner inf is nonconvex/NP-hard.</p>
+<hr />
+<h2 id="5-indicator-function-viewpoint-why-lagrangian-is-natural">5) Indicator-function viewpoint (why Lagrangian is natural)<a class="headerlink" href="#5-indicator-function-viewpoint-why-lagrangian-is-natural" title="Permanent link">&para;</a></h2>
+<p>Define indicator functions</p>
+<div class="arithmatex">\[
+I_-(u)=
+\begin{cases}
+0,&amp; u\le 0\\
++\infty,&amp; u&gt;0
+\end{cases}
+\qquad
+I_0(u)=
+\begin{cases}
+0,&amp; u=0\\
++\infty,&amp; u\neq 0
+\end{cases}
+\]</div>
+<p>Then primal is equivalent to unconstrained extended-value minimization:</p>
+<div class="arithmatex">\[
+\min_x\ \Big(
+f_0(x)+\sum_{i=1}^m I_-(f_i(x))+\sum_{j=1}^p I_0(h_j(x))
+\Big).
+\]</div>
+<p>Key envelope identities:</p>
+<div class="arithmatex">\[
+I_-(u)=\sup_{\lambda\ge 0}\lambda u,
+\qquad
+I_0(u)=\sup_{\nu\in\mathbb{R}}\nu u.
+\]</div>
+<p>So duality is basically: replace hard indicators by their linear supports and swap inf/sup (when allowed).</p>
+<hr />
+<h2 id="6-strong-duality-when-do-we-get-pstardstar">6) Strong duality: when do we get $<span class="arithmatex">\(p^\star=d^\star\)</span>$?<a class="headerlink" href="#6-strong-duality-when-do-we-get-pstardstar" title="Permanent link">&para;</a></h2>
+<h3 id="in-convex-optimization-standard-case">In convex optimization (standard case)<a class="headerlink" href="#in-convex-optimization-standard-case" title="Permanent link">&para;</a></h3>
+<p>Assume
+- $<span class="arithmatex">\(f_0,f_i\)</span>$ convex,
+- $<span class="arithmatex">\(h_j\)</span>$ affine,
+- a constraint qualification holds (Slater is the common one).</p>
+<p><strong>Slater condition (one clean version):</strong>
+There exists $<span class="arithmatex">\(\tilde x\)</span>$ such that
+$$
+f_i(\tilde x)&lt;0\ \forall i,\qquad h(\tilde x)=0.
+$$</p>
+<p>Then strong duality holds and dual optimum is attained:
+$$
+p^\star=d^\star,\qquad (\lambda^*,\nu^*)\ \text{exists}.
+$$</p>
+<hr />
+<h2 id="7-kkt-conditions-the-checklist-i-always-use">7) KKT conditions (the checklist I always use)<a class="headerlink" href="#7-kkt-conditions-the-checklist-i-always-use" title="Permanent link">&para;</a></h2>
+<p>Under convexity + CQ (e.g. Slater), $<span class="arithmatex">\(x^\*\)</span>$ is primal optimal iff there exist $<span class="arithmatex">\(\lambda^\*,\nu^\*\)</span>$ such that:</p>
+<h3 id="i-primal-feasibility">(i) Primal feasibility<a class="headerlink" href="#i-primal-feasibility" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+f_i(x^\*)\le 0,\quad i=1,\dots,m,\qquad h_j(x^\*)=0,\quad j=1,\dots,p.
+\]</div>
+<h3 id="ii-dual-feasibility">(ii) Dual feasibility<a class="headerlink" href="#ii-dual-feasibility" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\lambda^\*\ge 0.
+\]</div>
+<h3 id="iii-complementary-slackness">(iii) Complementary slackness<a class="headerlink" href="#iii-complementary-slackness" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\lambda_i^\*\,f_i(x^\*)=0\quad \forall i.
+\]</div>
+<p>Meaning: if constraint is inactive ($<span class="arithmatex">\(f_i(x^\*)&lt;0\)</span>$), multiplier must be zero.</p>
+<h3 id="iv-stationarity">(iv) Stationarity<a class="headerlink" href="#iv-stationarity" title="Permanent link">&para;</a></h3>
+<p>If differentiable:</p>
+<div class="arithmatex">\[
+\nabla f_0(x^\*)+\sum_{i=1}^m \lambda_i^\*\nabla f_i(x^\*)+\sum_{j=1}^p \nu_j^\*\nabla h_j(x^\*)=0.
+\]</div>
+<p>If nonsmooth, replace gradients by subgradients:</p>
+<div class="arithmatex">\[
+0\in \partial f_0(x^\*)+\sum_{i=1}^m \lambda_i^\*\partial f_i(x^\*)+\sum_{j=1}^p \nu_j^\*\nabla h_j(x^\*).
+\]</div>
+<h3 id="geometric-meaning-of-stationarity">Geometric meaning of stationarity<a class="headerlink" href="#geometric-meaning-of-stationarity" title="Permanent link">&para;</a></h3>
+<p>Objective descent direction is blocked by a conic combination of active constraint normals + equality normals.
+It’s like: "net force = 0".</p>
+<hr />
+<h2 id="8-saddle-point-view-useful-for-intuition">8) Saddle point view (useful for intuition)<a class="headerlink" href="#8-saddle-point-view-useful-for-intuition" title="Permanent link">&para;</a></h2>
+<p>If strong duality holds and KKT holds, then $$ (x^*,\lambda^*,\nu^*) $$ is a saddle point:</p>
+<div class="arithmatex">\[
+L(x^\*,\lambda,\nu)\le L(x^\*,\lambda^\*,\nu^\*)\le L(x,\lambda^\*,\nu^\*)
+\]</div>
+<p>for all $<span class="arithmatex">\(x\)</span>$ and all $<span class="arithmatex">\(\lambda\ge 0,\nu\)</span>$.</p>
+<hr />
+<h2 id="9-sensitivity-perturbation-this-is-the-part-in-your-slide">9) Sensitivity / perturbation (this is the part in your slide)<a class="headerlink" href="#9-sensitivity-perturbation-this-is-the-part-in-your-slide" title="Permanent link">&para;</a></h2>
+<p>Perturbed primal:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+p^\*(u,v)=\min_x\quad &amp; f_0(x)\\
+\text{s.t.}\quad &amp; f_i(x)\le u_i,\quad i=1,\dots,m,\\
+&amp; h_j(x)=v_j,\quad j=1,\dots,p.
+\end{aligned}
+\]</div>
+<p>Dual of perturbed problem becomes:</p>
+<div class="arithmatex">\[
+\max_{\lambda\ge 0,\nu}\ \ g(\lambda,\nu)-u^T\lambda - v^T\nu.
+\]</div>
+<h3 id="global-sensitivity-inequality-works-without-differentiability">Global sensitivity inequality (works without differentiability)<a class="headerlink" href="#global-sensitivity-inequality-works-without-differentiability" title="Permanent link">&para;</a></h3>
+<p>Assume strong duality holds at unperturbed problem and $<span class="arithmatex">\(\lambda^\*,\nu^\*\)</span>$ are optimal for $<span class="arithmatex">\(u=0,v=0\)</span>$.
+Apply weak duality to the perturbed problem using the same $<span class="arithmatex">\(\lambda^\*,\nu^\*\)</span>$:</p>
+<div class="arithmatex">\[
+p^\*(u,v)\ge g(\lambda^\*,\nu^\*)-u^T\lambda^\*-v^T\nu^\*
+\]</div>
+<p>but $<span class="arithmatex">\(g(\lambda^\*,\nu^\*)=p^\*(0,0)\)</span>$ (strong duality), so</p>
+<div class="arithmatex">\[
+\boxed{
+p^\*(u,v)\ge p^\*(0,0)-u^T\lambda^\*-v^T\nu^\*.
+}
+\]</div>
+<p>Interpretation: $<span class="arithmatex">\((-\lambda^\*,-\nu^\*)\)</span>$ gives a supporting hyperplane (global affine lower bound) to the value function.</p>
+<h3 id="local-sensitivity-when-differentiable-at-the-origin">Local sensitivity (when differentiable at the origin)<a class="headerlink" href="#local-sensitivity-when-differentiable-at-the-origin" title="Permanent link">&para;</a></h3>
+<p>If $<span class="arithmatex">\(p^\*(u,v)\)</span>$ is differentiable at $<span class="arithmatex">\((0,0)\)</span>$, then:</p>
+<div class="arithmatex">\[
+\boxed{
+\lambda_i^\*=-\frac{\partial p^\*(0,0)}{\partial u_i},
+\qquad
+\nu_j^\*=-\frac{\partial p^\*(0,0)}{\partial v_j}.
+}
+\]</div>
+<p>So multipliers are literally slopes of optimal value vs. constraint right-hand sides.</p>
+<p>Important nuance I keep in mind:
+- The inequality gives a bound for all perturbations.
+- It does NOT say the optimal dual variables stay the same for all perturbations.
+- Dual can change when the active set / slope region changes (kinks in $<span class="arithmatex">\(p^\*\)</span>$).</p>
+<hr />
+<h2 id="10-weak-duality-always-holds-convex-or-not">10) “Weak duality always holds” (convex or not)<a class="headerlink" href="#10-weak-duality-always-holds-convex-or-not" title="Permanent link">&para;</a></h2>
+<p>Yes: weak duality uses only:
+- $<span class="arithmatex">\(\lambda\ge 0\)</span>$
+- definition of $<span class="arithmatex">\(g=\inf_x L\)</span>$
+- feasibility implies $<span class="arithmatex">\(L\le f_0\)</span>$</p>
+<p>So for any problem (convex/nonconvex):</p>
+<div class="arithmatex">\[
+d^\star\le p^\star.
+\]</div>
+<p>Strong duality is the one that needs conditions.</p>
+<hr />
+<h2 id="11-conjugate-function-lens-fast-way-to-see-duals">11) Conjugate-function lens (fast way to see duals)<a class="headerlink" href="#11-conjugate-function-lens-fast-way-to-see-duals" title="Permanent link">&para;</a></h2>
+<p>If a primal has the form
+$$
+\min_x\ f(x)+g(Ax)
+$$
+then dual often pops out using Fenchel conjugates:</p>
+<div class="arithmatex">\[
+f^\*(y)=\sup_x (y^T x - f(x)).
+\]</div>
+<p>Typical dual template:</p>
+<div class="arithmatex">\[
+\max_y\ -f^\*(-A^T y)-g^\*(y).
+\]</div>
+<p>This is why “norm - linear” or “sup(y^T x - ||x||)” shows up: it’s exactly a conjugate computation.</p>
+<p>Useful identity:
+$$
+(||\cdot||)^*(y)=I_{{||y||_*\le 1}}(y).
+$$</p>
+<hr />
+<h2 id="12-two-quick-examples-i-like-to-sanity-check-with-kkt">12) Two quick examples I like to sanity-check with KKT<a class="headerlink" href="#12-two-quick-examples-i-like-to-sanity-check-with-kkt" title="Permanent link">&para;</a></h2>
+<h3 id="example-1-simple-inequality-constraint-1d">Example 1: Simple inequality constraint (1D)<a class="headerlink" href="#example-1-simple-inequality-constraint-1d" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\min_x\ x^2\quad \text{s.t.}\quad x\ge 1.
+\]</div>
+<p>Write as $<span class="arithmatex">\(f(x)=x^2\)</span>$, constraint $<span class="arithmatex">\(1-x\le 0\)</span>$.
+Lagrangian:
+$$
+L=x^2+\lambda(1-x),\quad \lambda\ge 0.
+$$
+Stationarity:
+$$
+2x-\lambda=0 \Rightarrow \lambda=2x.
+$$
+Complementary slackness: constraint active at optimum, so $<span class="arithmatex">\(x^\*=1\)</span>$, hence $<span class="arithmatex">\(\lambda^\*=2\)</span>$.
+Sensitivity: if constraint becomes $<span class="arithmatex">\(x\ge 1-\epsilon\)</span>$ (i.e. RHS perturbed), optimal value changes slope = $<span class="arithmatex">\(-\lambda^\*\)</span>$ in the right coordinate.</p>
+<h3 id="example-2-equality-constrained-least-squares">Example 2: Equality constrained least squares<a class="headerlink" href="#example-2-equality-constrained-least-squares" title="Permanent link">&para;</a></h3>
+<p>$$
+\min_x\ \frac12||x||_2^2\quad \text{s.t.}\quad Ax=b.
+$$
+Lagrangian:
+$$
+L=\frac12||x||_2^2+\nu^T(Ax-b)
+$$
+Stationarity:
+$$
+x + A^T\nu=0\Rightarrow x^*=-A^T\nu^*.
+$$
+Plug in constraint:
+$$
+A(-A^T\nu^*)=b \Rightarrow -(AA^T)\nu^*=b.
+$$
+So $<span class="arithmatex">\(\nu^\*=-(AA^T)^{-1}b\)</span>$ if invertible.</p>
+<hr />
+<h2 id="13-mini-translation-table-stuff-i-use-while-solving">13) Mini translation table (stuff I use while solving)<a class="headerlink" href="#13-mini-translation-table-stuff-i-use-while-solving" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Dual variable for inequality: nonnegative
+$$
+f_i(x)\le 0\Rightarrow \lambda_i\ge 0
+$$</p>
+</li>
+<li>
+<p>Dual variable for equality: free
+$$
+h(x)=0\Rightarrow \nu\in\mathbb{R}
+$$</p>
+</li>
+<li>
+<p>Complementary slackness:
+$$
+\lambda_i&gt;0\Rightarrow f_i(x^*)=0,\qquad f_i(x^*)&lt;0\Rightarrow \lambda_i=0
+$$</p>
+</li>
+<li>
+<p>Strong duality + KKT = saddle point and sensitivity slopes.</p>
+</li>
+<li>
+<p>Dual is convex optimization in $<span class="arithmatex">\((\lambda,\nu)\)</span>$, even if primal isn't.</p>
+</li>
+</ul>
+<hr />
 
 
 
