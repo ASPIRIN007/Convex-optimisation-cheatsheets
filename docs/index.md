@@ -7,3 +7,4 @@ Welcome — this site contains cheatsheets for convex optimisation.
 - [chapter4_boyd](chapter4_boyd.md)
 - [convexity_preserving_operations](convexity_preserving_operations.md)
 - [Strong_convexity](Strong_convexity.md)
+- [Convex_sets_and_functions](Convex_sets_and_functions.md)
