@@ -9,7 +9,7 @@ use_directory_urls: true
 
 theme:
   name: material
-  logo: assets/cover.png
+  logo: assets/images/boyd-cover.png
   features:
     - navigation.sections
     - navigation.expand
@@ -50,5 +50,5 @@ extra_javascript:
 nav:
   - Overview: index.md
   - Cheatsheet_norm: cheatsheet_norm.md
-  
+
 
